@@ -15,7 +15,7 @@ public class GunShooting : MonoBehaviour
         {
             var _newBullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
             var _newBulletBody = _newBullet.GetComponent<Rigidbody>();
-            _newBulletBody.AddForce(transform.forward * _bulletForce);
+            _newBulletBody.AddForce(transform.up * _bulletForce);
         }
     }
 }

@@ -18,6 +18,7 @@ public class PlayerControler : MonoBehaviour
     private bool _isGrounded;
     private Rigidbody _rigidBody;
     private Collider _InteractsWith;
+    private Animation _animationGameObject;
 
     private void Start()
     {
@@ -78,9 +79,6 @@ public class PlayerControler : MonoBehaviour
         Vector3 _movement = new Vector3(_moveHorizontal, 0.0f, _moveVertical);
 
         _rigidBody.AddForce(_movement * _speed);
-
-        transform.LookAt(_movement + transform.position);
-
     }
 
     private void Jump()
@@ -116,7 +114,8 @@ public class PlayerControler : MonoBehaviour
             {
                 if (_thereIsAKey == true)
                 {
-                    Destroy(trigger.gameObject);
+                    _animationGameObject = trigger.gameObject.GetComponent<Animation>();
+                    _animationGameObject.Play();
                 }
             }
         }
